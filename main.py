@@ -583,7 +583,7 @@ async def broadcast_send(message: Message, state: FSMContext):
     if message.from_user.id != ADMIN_ID: return
     await state.clear()
     user_ids = await db.get_all_user_ids()
-    success = failed = 0
+ success = failed = 0
     status_msg = await message.answer(f"⏳ Отправка {len(user_ids)} пользователям...")
     for uid in user_ids:
         try:
